@@ -57,6 +57,12 @@ function gotPoses(results)
   }
 }
 
+function startGame()
+{
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game Is Loading";
+}
+
 
 function modelLoaded() {
   console.log('PoseNet Is Initialized');
@@ -81,8 +87,11 @@ function draw(){
     circle(rightWristX, rightWristY, 30);
   }
  
-   //funtion paddleInCanvas call 
-   paddleInCanvas();
+  if(game_status == "start")
+  {
+    document.getElementById("status").innerHTML = "Game Is Loaded";
+    //funtion paddleInCanvas call 
+   paddleInCanvas();}
  
    //left paddle
    fill(250,0,0);
